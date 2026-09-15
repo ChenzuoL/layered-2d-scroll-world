@@ -1,0 +1,93 @@
+{
+  "schema": "layered-2d-scroll-world/v1",
+  "title": "A Little Autumn Journey",
+  "style": {
+    "background": "#FAFBF9",
+    "ink": "#28312D",
+    "accent": "#B18B4B",
+    "fovDesktop": 26,
+    "fovPortrait": 34,
+    "farWash": 0.28
+  },
+  "guide": {
+    "asset": "guide-leaf",
+    "singleton": true,
+    "driver": "guide"
+  },
+  "transition": {
+    "stableFraction": 0.82,
+    "type": "per-camera-crossfade",
+    "forcedWait": false
+  },
+  "interaction": {
+    "dragX": 0.055,
+    "dragY": 0.045,
+    "inertia": true,
+    "scrollScreensPerChapter": 1.45
+  },
+  "autoplay": {
+    "enabled": true,
+    "autoStart": true,
+    "constantSpeed": true,
+    "secondsPerChapter": 14,
+    "defaultMuted": true,
+    "audioBlocksVisuals": false,
+    "manualInputPauses": true,
+    "audio": null
+  },
+  "narration": {
+    "language": "none",
+    "voice": "optional; provide autoplay.audio.track",
+    "chapters": ["opening", "woodland", "pond", "ending"]
+  },
+  "assets": {
+    "guide-leaf": {"file":"assets/sample/guide-leaf.webp","category":"airborne","width":278,"height":284,"centroidX":0.5043,"groundLine":0.9542,"shadow":"none"},
+    "maple-large": {"file":"assets/sample/maple-large.webp","category":"grounded","width":326,"height":346,"centroidX":0.5047,"groundLine":0.9624,"shadow":"contact","contacts":[{"x":0.49,"y":0.96,"width":0.2}]},
+    "maple-small": {"file":"assets/sample/maple-small.webp","category":"grounded","width":275,"height":307,"centroidX":0.4943,"groundLine":0.9577,"shadow":"contact","contacts":[{"x":0.5,"y":0.96,"width":0.16}]},
+    "cloud": {"file":"assets/sample/cloud.webp","category":"airborne","width":297,"height":196,"centroidX":0.506,"groundLine":0.9337,"shadow":"none"},
+    "mushrooms": {"file":"assets/sample/mushrooms.webp","category":"grounded","width":231,"height":238,"centroidX":0.4805,"groundLine":0.9454,"shadow":"contact","contacts":[{"x":0.48,"y":0.95,"width":0.45}]},
+    "grass": {"file":"assets/sample/grass.webp","category":"grounded","width":283,"height":265,"centroidX":0.506,"groundLine":0.9509,"shadow":"contact","contacts":[{"x":0.51,"y":0.95,"width":0.35}]},
+    "squirrel": {"file":"assets/sample/squirrel-atlas.webp","category":"actor","width":320,"height":320,"centroidX":0.5,"groundLine":0.925,"shadow":"contact","contacts":[{"x":0.5,"y":0.925,"width":0.3}],"atlas":{"cols":4,"rows":2,"frames":8,"fps":5.5}},
+    "pond-water": {"file":"assets/sample/pond.webp","category":"band","width":256,"height":256,"centroidX":0.4941,"groundLine":0.9492,"shadow":"none"},
+    "reeds": {"file":"assets/sample/reeds.webp","category":"grounded","width":256,"height":256,"centroidX":0.482,"groundLine":0.9453,"shadow":"contact","contacts":[{"x":0.48,"y":0.95,"width":0.34}]},
+    "lily-pad": {"file":"assets/sample/lily-pad.webp","category":"surface","width":256,"height":256,"centroidX":0.4853,"groundLine":0.9414,"shadow":"none"},
+    "frog": {"file":"assets/sample/frog.webp","category":"surface","width":256,"height":256,"centroidX":0.5108,"groundLine":0.9492,"shadow":"none"}
+  },
+  "chapters": [
+    {
+      "id":"opening","label":"Opening","eyebrow":"a small beginning","title":"Follow the little leaf.","align":"center",
+      "camera":{"from":[0,1.6,10],"to":[0.2,1.4,5],"look":[0,1,-6]},
+      "guidePath":[[0,0.7,0],[0.2,1,-1],[0.4,1.3,-3]],"elements":[]
+    },
+    {
+      "id":"woodland","label":"Woodland","eyebrow":"the woodland","title":"A feast beneath the trees.","align":"left",
+      "camera":{"from":[-1.8,1.7,18],"to":[-1.1,1.4,9],"look":[-1.1,1.2,-6]},
+      "guidePath":[[-0.7,1.8,1],[-1.1,1,-3],[-0.3,1.7,-7]],
+      "elements":[
+        {"asset":"cloud","x":-3,"y":5,"z":-28,"height":1.7,"motion":{"driver":"time","type":"drift","amplitude":0.35,"frequency":0.16}},
+        {"asset":"maple-small","x":-4.5,"y":0,"z":-18,"height":4.5},
+        {"asset":"maple-large","x":3,"y":0,"z":-8,"height":5.7,"motion":{"driver":"time","type":"bend","amplitude":0.035,"frequency":0.45}},
+        {"asset":"grass","x":-2.6,"y":0,"z":-2,"height":0.7,"motion":{"driver":"time","type":"bend","amplitude":0.05,"frequency":0.8}},
+        {"asset":"mushrooms","x":2.4,"y":0,"z":0.5,"height":0.8},
+        {"asset":"squirrel","x":0.5,"y":0,"z":-2,"height":1.2,"motion":{"driver":"time","type":"atlas-loop","rest":1.1}}
+      ]
+    },
+    {
+      "id":"pond","label":"Pond","eyebrow":"the pond","title":"A softer landing.","align":"left",
+      "camera":{"from":[-0.8,2.4,18],"to":[-0.3,2,9],"look":[0,1,-6]},
+      "guidePath":[[-0.4,2.8,-2],[-0.4,0.6,-3],[0.3,0.2,-4]],
+      "elements":[
+        {"asset":"cloud","x":3,"y":5.5,"z":-30,"height":2,"motion":{"driver":"time","type":"drift","amplitude":0.3,"frequency":0.13}},
+        {"asset":"pond-water","x":0,"y":-1.1,"z":-16,"height":4,"width":18},
+        {"asset":"reeds","x":-5,"y":0,"z":-9,"height":2.5,"motion":{"driver":"time","type":"bend","amplitude":0.04,"frequency":0.55}},
+        {"asset":"lily-pad","x":1,"y":0.2,"z":-3,"height":0.9,"width":2.6,"motion":{"driver":"time","type":"bob","amplitude":0.035,"frequency":0.9}},
+        {"asset":"frog","x":1,"y":0.58,"z":-2.9,"height":0.75,"motion":{"driver":"time","type":"bob","amplitude":0.02,"frequency":1.2}}
+      ]
+    },
+    {
+      "id":"ending","label":"Ending","eyebrow":"the end","title":"Every ending opens another path.","align":"center","ending":true,
+      "camera":{"from":[0,1.4,8],"to":[0,1.4,6],"look":[0,0.8,0]},
+      "guidePath":[[0,0.5,0],[0.1,0.7,-0.2],[0,0.8,-0.4]],"elements":[]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Layered 2D Journey</title><link rel="icon" href="data:,"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head>
+<body>
+<div id="loading" role="status">Preparing the journey...</div>
+<canvas id="world" aria-label="Interactive illustrated journey"></canvas><div id="grain" aria-hidden="true"></div>
+<div id="copy"></div><nav id="chapters" aria-label="Chapters"></nav>
+<div id="tour"><button id="play" aria-label="Pause journey" title="Pause journey"><i data-lucide="pause"></i><span>Pause journey</span></button><button id="sound" class="icon" aria-label="Turn narration on" title="Turn narration on" hidden><i data-lucide="volume-x"></i></button><select id="speed" aria-label="Journey speed" title="Journey speed"><option value="0.8">0.8x</option><option value="1" selected>1x</option><option value="1.2">1.2x</option></select><output id="time">0:00</output></div>
+<div id="tools"><button id="reset" class="icon" aria-label="Center view" title="Center view" disabled><i data-lucide="scan"></i></button></div><div id="bar"></div>
+<main id="track"></main>
+<script src="vendor/lucide.js"></script><script type="module" src="main.js"></script>
+</body></html>

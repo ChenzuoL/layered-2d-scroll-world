@@ -1,0 +1,35 @@
+{
+  "skill": "layered-2d-scroll-world",
+  "cases": [
+    {
+      "prompt": "用这些水彩树、松鼠和落叶素材做一个可以滚动推进、拖动查看的伪3D绘本网页",
+      "shouldTrigger": true,
+      "expected": ["independent transparent assets", "Three.js world coordinates", "narrow FOV", "browser QA"]
+    },
+    {
+      "prompt": "复刻一个2D illustrations living in a 3D world的滚动故事，每一幕有自主运动角色",
+      "shouldTrigger": true,
+      "expected": ["time-driven actors", "persistent guide object", "scroll-driven camera"]
+    },
+    {
+      "prompt": "给现有Three.js分层插画加匀速自动漫游和英文童声旁白",
+      "shouldTrigger": true,
+      "expected": ["constant-speed autoplay", "audio does not block visuals", "manual takeover"]
+    },
+    {
+      "prompt": "把这个预渲染视频做成滚动控制播放进度的网页",
+      "shouldTrigger": false,
+      "expected": ["route to scroll-world-video"]
+    },
+    {
+      "prompt": "做一个普通的产品落地页",
+      "shouldTrigger": false,
+      "expected": ["route to create-web-work"]
+    },
+    {
+      "prompt": "生成一张秋日森林海报",
+      "shouldTrigger": false,
+      "expected": ["route to generate"]
+    }
+  ]
+}

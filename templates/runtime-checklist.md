@@ -1,0 +1,21 @@
+# Runtime Checklist
+
+- [ ] `scene-contract.json` validates before art generation.
+- [ ] Every static plane keeps immutable world-space base transform.
+- [ ] Camera FOV and per-chapter route are config-driven.
+- [ ] Drag moves camera and look target, never element coordinates.
+- [ ] One persistent guide mesh survives all chapter boundaries.
+- [ ] Autonomous characters continue at fixed scroll.
+- [ ] Rooted plants bend above a fixed root.
+- [ ] Air/water assets have no detached floor shadows.
+- [ ] Grounded contacts come from alpha/contact metadata.
+- [ ] Stable chapter range stays fully opaque.
+- [ ] Narrative handoffs are scrubbed, never forced waits.
+- [ ] Autoplay progress derivative is constant at boundaries.
+- [ ] Audio buffering never blocks visual progress.
+- [ ] Manual wheel/drag/key/nav pauses autoplay.
+- [ ] Reduced motion does not auto-start.
+- [ ] Ending chapter remains after any reorder.
+- [ ] Desktop, portrait, landscape, narrow, and wide screenshots pass.
+- [ ] Canvas-pixel checks prove every chapter renders.
+- [ ] Console/network are clean before publish.

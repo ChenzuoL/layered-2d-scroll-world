@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Scene Calibration</title><link rel="icon" href="data:,"><link rel="stylesheet" href="editor.css"></head>
+<body>
+<header><div><p class="eyebrow">LAYERED WORLD / AGENT-FIRST</p><h1>Scene Calibration</h1><p class="sub">Review an Agent composition. Fine-tune only what needs changing.</p></div>
+<div class="actions"><input id="import-file" type="file" accept=".json,application/json" hidden><button id="import">Import Agent draft</button><button id="revert" disabled>Revert draft</button><button id="apply" disabled>Apply draft</button><button id="download-patch" class="primary" disabled>Export changes</button><button id="download">Full world.json</button></div></header>
+<main>
+<section class="stage-panel">
+ <div class="view-toolbar"><label>View<select id="view-mode"><option value="camera">Camera preview</option><option value="overview">Spatial overview</option></select></label><label id="overview-zoom-wrap" hidden>Zoom <input id="overview-zoom" type="range" min="0.7" max="3" step="0.05" value="1" aria-label="Overview zoom"></label><label class="inline">Journey <input id="preview-time" type="range" min="0" max="1" step="0.01" value="0"><output id="preview-value">0%</output></label><button id="reset">Reset view</button><label class="check"><input id="compare" type="checkbox"> Before</label><label class="check"><input id="show-helpers" type="checkbox" checked> Guides</label></div>
+ <div class="viewport"><canvas id="editor" aria-label="Three-dimensional scene calibration"></canvas><div id="empty" hidden></div><div id="scene-badge"></div><div id="hint">Select a plane or a guide handle; drag in the XY plane. Z stays fixed.</div></div>
+</section>
+<aside>
+<label>Chapter<select id="chapter"></select></label>
+<div class="target-tabs" role="group" aria-label="Calibration target"><button data-target="scene" class="active" aria-pressed="true">Assets</button><button data-target="camera" aria-pressed="false">Camera</button><button data-target="guide" aria-pressed="false">Guide path</button></div>
+<label id="asset-wrap">Instance<select id="asset"></select></label>
+<label id="camera-mode-wrap" hidden>Camera target<select id="camera-mode"><option value="from">Start position</option><option value="to">End position</option><option value="look">Look target</option></select></label>
+<label id="guide-point-wrap" hidden>Guide control point<select id="guide-point"><option value="0">P0 · arrival</option><option value="1">P1 · control</option><option value="2">P2 · departure</option></select></label>
+<div id="inspector"></div>
+<section class="panel"><h2>Layer stack <small>front → back</small></h2><div id="layer-list"></div></section>
+<section class="panel"><h2>Projected overlap</h2><p class="note">Bounding boxes in the camera preview; transparent areas may not obscure one another.</p><div id="occlusion-list"></div></section>
+<section class="panel"><h2 id="diff-heading">Changes from loaded config</h2><div id="diff-list"></div></section>
+<p class="note">Edits stay in this tab. Export JSON to retain them. Importing JSON does not upload image files; its asset paths resolve beside this tool.</p>
+</aside>
+</main><footer><span id="status" role="status" aria-live="polite">Loading composition…</span><span id="counts"></span></footer>
+<script type="module" src="editor.js"></script>
+</body></html>
